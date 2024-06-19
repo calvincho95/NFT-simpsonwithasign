@@ -1,9 +1,13 @@
-import Calculator from "./components/Calculator";
+import Banner from "./components/Banner";
+import Picture from "./components/Picture";
+import TopBanner from "./components/TopBanner";
 
 const App = () => {
   return (
-    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ... min-h-screen flex justify-center items-center">
-      <Calculator />
+    <div className="font-aprilPromise bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ... min-h-screen">
+      <TopBanner />
+      <Banner />
+      <Picture />
     </div>
   );
 };
