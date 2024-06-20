@@ -1,6 +1,28 @@
+import React, { useState } from "react";
+import { ethers } from "ethers";
 import bart from "../assets/images/bart.png";
 
 const TopBanner = () => {
+  const [account, setAccount] = useState(null);
+
+  const connectToMetamask = async () => {
+    if (window.ethereum) {
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        setAccount(address);
+      } catch (error) {
+        console.error("Failed to connect to Metamask", error);
+      }
+    } else {
+      alert(
+        "Metamask is not installed. Please install it to use this feature."
+      );
+    }
+  };
+
   return (
     <>
       <div>
